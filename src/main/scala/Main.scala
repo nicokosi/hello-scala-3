@@ -9,3 +9,10 @@ def help(id: User | Email): Unit =
 @main def unionType(): Unit =
   help(User(123, "John Doe"))
   help(Email("JohnDoe@myprovider.com"))
+enum EngineType:
+  case TwoStroke, FourStroke
+enum Color:
+  case Red, Blue, Silver, Black
+case class Motorbike(engineType: EngineType, color: Seq[Color])
+@main def enums(): Unit =
+  println(s"Bought bike: $Motorbike(EngineType.TwoStroke, Seq(Color.Red, Color.Black))")

@@ -16,3 +16,17 @@ enum Color:
 case class Motorbike(engineType: EngineType, color: Seq[Color])
 @main def enums(): Unit =
   println(s"Bought bike: $Motorbike(EngineType.TwoStroke, Seq(Color.Red, Color.Black))")
+
+trait Charger:
+  def charge(): Unit
+trait PowerSupplier:
+  def supplyPower(): Unit
+def makeSomething(battery: Charger & PowerSupplier): Any =
+  battery.charge()
+  battery.supplyPower()
+object Battery extends Charger, PowerSupplier {
+  override def charge(): Unit = println("Charging... done! 🔋")
+  override def supplyPower(): Unit = println("I got the power! 💪")
+}
+@main def intersectionTypes(): Unit =
+  println(makeSomething(Battery))

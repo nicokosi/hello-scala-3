@@ -30,3 +30,7 @@ object Battery extends Charger, PowerSupplier {
 }
 @main def intersectionTypes(): Unit =
   println(makeSomething(Battery))
+
+extension (s: String)
+  def sayHello(): Unit = println(s"Hello! 👋 I'm $s, a string! 🤡")
+@main def extensionMethods(): Unit = println("Wat".sayHello())
